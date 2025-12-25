@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Merry Christmas 🎮🎄</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ---------- GLOBAL ---------- */
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #0b1d3a, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* ---------- SNOW ---------- */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    user-select: none;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(110vh); }
+}
+
+/* ---------- CARD ---------- */
+.card {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 28px;
+    border-radius: 20px;
+    max-width: 360px;
+    box-shadow: 0 0 25px rgba(0, 153, 255, 0.6);
+    border: 1px solid rgba(0,153,255,0.4);
+    z-index: 2;
+}
+
+h1 {
+    font-size: 1.9em;
+    margin-bottom: 15px;
+}
+
+.message {
+    font-size: 0.95em;
+    line-height: 1.5em;
+    margin-bottom: 22px;
+}
+
+.from {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #cfe9ff;
+    font-style: italic;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+    background: linear-gradient(135deg, #0070f3, #00b4ff);
+    border: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0,153,255,0.7);
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* ---------- CODE REVEAL ---------- */
+.code-box {
+    display: none;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid #00b4ff;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.value {
+    font-size: 0.9em;
+    color: #7dd3fc;
+    margin-bottom: 6px;
+}
+
+.code {
+    font-size: 1.2em;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: #00e5ff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Snowflakes -->
+<script>
+for (let i = 0; i < 25; i++) {
+    let snow = document.createElement("div");
+    snow.className = "snowflake";
+    snow.innerHTML = "❄";
+    snow.style.left = Math.random() * 100 + "vw";
+    snow.style.animationDuration = (5 + Math.random() * 5) + "s";
+    snow.style.fontSize = (10 + Math.random() * 20) + "px";
+    document.body.appendChild(snow);
+}
+</script>
+
+<div class="card">
+    <h1>🎄 Merry Christmas 🎮</h1>
+
+    <div class="message">
+        <strong>Lucas,</strong><br><br>
+        you are loved beyond words. I hope you have fun with your new game.<br>
+        We love you.<br><br>
+        <strong>Merry Christmas ❤️</strong>
+        <div class="from">
+            From: Tio, Tia, Tiago & Theo
+        </div>
+    </div>
+
+    <button onclick="revealCode()">🎁 Unlock Your Gift</button>
+
+    <div class="code-box" id="giftCode">
+        <div class="value">$75 USD • PlayStation</div>
+        <div class="code">HEBK-GTPD-TPGB</div>
+    </div>
+</div>
+
+<script>
+function revealCode() {
+    document.getElementById("giftCode").style.display = "block";
+}
+</script>
+
+</body>
+</html>
